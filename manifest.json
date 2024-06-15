@@ -1,0 +1,60 @@
+{
+  "header" : {
+    "uuid" : "31349b75-0c5a-483a-98eb-0bd498846b1e",
+    "name" : "§eGod §fInfinite",
+    "description" : "hp変更 テクスチャ変更 Unicode 言語追加 など\n詳細は右下の歯車の設定で\n§eBy PrintMender",
+    "version" : [
+      0,
+      0,
+      1
+    ],
+		"min_engine_version": [
+			1,
+			19,
+			50
+		]
+  },
+  "modules" : [
+    {
+      "version" : [
+        0,
+        0,
+        1
+      ],
+      "description" : "By PrintMender",
+      "type" : "resources",
+      "uuid" : "cc75ef41-a367-4fb6-8b73-27300c27418f"
+    }
+  ],
+  "subpacks": [
+
+    {
+        "folder_name": "debug",
+        "name": "\n§cおすすめしない§r\n\nデバッグ設定\n設定画面にデバッグ設定などを表示\n\n§cデバッグ\n\n",
+        "memory_tier": 1
+    },
+    {
+        "folder_name": "normal",
+        "name": "\n§aおすすめ§r\n\nUnicode追加、プレイ中言語変更、ブロックテクスチャ変更、HP変更\n\n\n§aこのリソースパックのデフォルト\n\n",
+        "memory_tier": 2
+    }
+],
+"settings": [
+    {
+        "type": "label",
+        "name": "text_01",
+        "text": "§eデバッグ設定には注意してください\n§e(普段表示されていないデバッグ設定などを触ると操作できなくなるバグ?と普段の画面がおかしくなるバグを確認しています)"
+    },
+    {
+        "type": "label",
+        "name": "text_02",
+        "text": "自作言語については Geyser が入っているサーバーに入るとチャットがおかしくなるバグがあります。\n入る前に言語を 日本語 にしてからサーバーで自作言語にしてください"
+    },
+    {
+        "type": "label",
+        "name": "text_03",
+        "text": "by PrintMender"
+    }
+],
+  "format_version" : 2
+}
