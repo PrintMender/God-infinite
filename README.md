@@ -1,4 +1,4 @@
-![Package Control](https://img.shields.io/packagecontrol/dt/:uroboroSQL%20Formatte.svg)
+![Package Control](https://img.shields.io/packagecontrol/dt/:uroboroSQL%20Formatter.svg)
 
 # God infinite
 
