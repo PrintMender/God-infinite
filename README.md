@@ -1,6 +1,5 @@
-![Package Control](https://img.shields.io/packagecontrol/dt/:uroboroSQL%20Formatter.svg)
-
 # God infinite
+![downloads](https://img.shields.io/github/downloads/PrintMender/God-infinite/total?style=plastic)  
 
 God infiniteはマインクラフト統合版のリソースパックです。
 
