@@ -2,6 +2,7 @@
 ![downloads](https://img.shields.io/github/downloads/PrintMender/God-infinite/total?style=plastic)  
 
 God infiniteはマインクラフト統合版のリソースパックです。
+
 ※元々個人用で作ったリソースパックなのでクオリティは低いです
 
 # 内容
