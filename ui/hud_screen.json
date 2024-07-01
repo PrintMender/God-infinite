@@ -145,7 +145,14 @@
       ]
     },
   
-  
+    "anim_chat_bg_alpha": {
+      "anim_type": "alpha",
+      "easing": "in_quart",
+      "destroy_at_end": "chat_grid_item",
+      "duration": 1,
+      "from": 0.5,
+      "to": 0
+    },
   
     "chat_grid_item": {
       "type": "panel",
