@@ -158,8 +158,8 @@
       "type": "panel",
       "layer": 1,
       "size": [ "100%", "100%c" ], //左の値で長さを変える
-      "anchor_from": "bottom_left",
-      "anchor_to": "bottom_left",
+      "anchor_from": "top_left",
+      "anchor_to": "top_left",
       "bindings": [
         {
           "binding_name": "(not #on_new_death_screen)"
@@ -196,8 +196,10 @@
       "clips_children": true,
       "anchor_from": "bottom_left",
       "anchor_to": "bottom_left",
-      "size": [ "100%", 180 ], // %で横の大きさ
-      // "offset": [ 0, 140 ],
+      "size": [ 250, 180 ], // %で横の大きさ
+
+      "offset": [ 0, -40 ],
+
   
       "controls": [
         {
@@ -648,9 +650,9 @@
           "chat_stack": {
             "type": "stack_panel",
             "orientation": "vertical",
-            "size": [ "65%", "100%" ],
-            "anchor_from": "top_left",
-            "anchor_to": "top_left",
+            "size": [ "65%", "100%" ], //サイズ　左が横
+            "anchor_from": "left_middle",
+            "anchor_to": "left_middle",
             "controls": [
               {
                 "paper_doll_padding": {
@@ -717,7 +719,19 @@
               },
               { "player_position@hud.player_position": {} },
               { "number_of_days_played@hud.number_of_days_played": {} },
-              { "chat_panel@hud.chat_panel": {} }
+              {
+                "fill_padding": {
+                  "type": "panel",
+                  "size": [ 1, "fill" ]
+                }
+              },
+              { "chat_panel@hud.chat_panel": {} },
+              {
+                "bottom_padding": {
+                  "type": "panel",
+                  "size": [ 1, 42 ]
+                }
+              }
             ]
           }
         },
