@@ -9,6 +9,20 @@
     "type": "panel"
   },
 
+  "vertical_padding_8px": {
+    "type": "panel",
+    "size": [ "100%", 8 ]
+  },
+
+  "horizontal_padding_2px": {
+    "type": "panel",
+    "size": [ 2, 0 ]
+  },
+
+  "empty_image": {
+    "type": "image"
+  },
+
   "horizontal_stack_panel": {
     "type": "stack_panel",
     "orientation": "horizontal"
@@ -1402,7 +1416,7 @@
   "text_magnifying_glass_image": {
     "type": "image",
     "texture": "textures/ui/magnifying_glass.png",
-    "layer" : 10
+    "layer": 10
   },
 
   "text_close_X_button_image": {
@@ -1598,13 +1612,16 @@
     "$disabled_alpha|default": 0.5,
     "$text_offset|default": [ 0, 0 ],
 
-    "$text_clear_button_enabled|default" : false,
-    "$text_clear_button_size|default": [ 15, 15 ],
-    "$text_clear_button_offset|default": [0, 0],
-    "$magnifying_glass_enabled|default": false,
-    "$magnifying_glass_size|default": [10, 10],
-    "$magnifying_glass_offset|default": [0, 0],
+    "$place_holder_text_hover_color|default": "$text_box_text_color",
+    "place_holder_text_hover_color": "$place_holder_text_hover_color",
 
+    "$text_clear_button_enabled|default": false,
+    "$text_clear_button_size|default": [ 15, 15 ],
+    "$text_clear_button_offset|default": [ 0, 0 ],
+    "$magnifying_glass_enabled|default": false,
+    "$magnifying_glass_size|default": [ 10, 10 ],
+    "$magnifying_glass_offset|default": [ 0, 0 ],
+    
     "controls": [
       {
         "centering_panel": {
@@ -1641,21 +1658,21 @@
                       "anchor_to": "left_middle",
                       "visible": "$magnifying_glass_enabled",
                       "size": "$magnifying_glass_size",
-                      "offset" : "$magnifying_glass_offset"
+                      "offset": "$magnifying_glass_offset"
                     }
                   },
                   {
-                    "clear_text_button_panel" : {
-                      "type" : "panel",
-                      "size" : ["100%", "100%"],
-                      "visible" : "$text_clear_button_enabled",
-                      "controls" : [
+                    "clear_text_button_panel": {
+                      "type": "panel",
+                      "size": [ "100%", "100%" ],
+                      "visible": "$text_clear_button_enabled",
+                      "controls": [
                         {
                           "clear_text_button@common.clear_text_button": {
                             "anchor_from": "right_middle",
                             "anchor_to": "right_middle",
                             "size": "$text_clear_button_size",
-                            "offset" : "$text_clear_button_offset",
+                            "offset": "$text_clear_button_offset",
                             "bindings": [
                               {
                                 "binding_type": "global",
@@ -1921,6 +1938,8 @@
     "$hover_alpha|default": 1.0,
     "$disabled_alpha|default": 0.5,
     "$text_offset|default": [ 0, 0 ],
+    "$place_holder_text_hover_color|default": "$text_box_text_color",
+    "place_holder_text_hover_color": "$place_holder_text_hover_color",
 
     "controls": [
       {
@@ -3179,6 +3198,46 @@
     "layer": 1
   },
 
+  "cell_image_selected": {
+    "type": "image",
+    "texture": "textures/ui/recipe_book_touch_cell_selected",
+    "layer": 1
+  },
+
+  "cell_image_panel": {
+    "type": "panel",
+    "controls": [
+      {
+        "cell_image@common.cell_image": {
+          "$cell_selected_binding_name|default": "#is_selected_slot",
+          "visible": true,
+          "bindings": [
+            {
+              "binding_name": "(not $cell_selected_binding_name)",
+              "binding_name_override": "#visible",
+              "binding_type": "collection",
+              "binding_collection_name": "$item_collection_name"
+            }
+          ]
+        }
+      },
+      {
+        "cell_image_selected@common.cell_image_selected": {
+          "$cell_selected_binding_name|default": "#is_selected_slot",
+          "visible": false,
+          "bindings": [
+            {
+              "binding_name": "$cell_selected_binding_name",
+              "binding_name_override": "#visible",
+              "binding_type": "collection",
+              "binding_collection_name": "$item_collection_name"
+            }
+          ]
+        }
+      }
+    ]
+  },
+
   "cell_overlay": {
     "ignored": true
   },
@@ -3319,7 +3378,7 @@
         "progressive_up@progressive_select_progress_bar": {
           "anchor_from": "top_middle",
           "anchor_to": "bottom_middle",
-          "offset": [ 0, -4 ],
+          "offset": [ 0, -7 ],
           "$visibility_binding_name": "#progressive_select_up_visible",
           "$texture_to_use": "textures/ui/stack_progress_bar_up_arrow",
           "$fill_bar_offset": [ 0, -0.5 ]
@@ -3421,26 +3480,6 @@
                   }
                 ]
               }
-            },
-            {
-              "bundle_tooltip@common.bundle_tooltip": {
-                "layer": 29,
-                "$hover_text_binding_name|default": "#hover_text",
-                "bindings": [
-                  {
-                    "binding_name": "$hover_text_binding_name",
-                    "binding_name_override": "#hover_text",
-                    "binding_type": "collection",
-                    "binding_collection_name": "$item_collection_name"
-                  },
-                  {
-                    "binding_name": "#hover_items_id",
-                    "binding_name_override": "#hover_items_id",
-                    "binding_type": "collection",
-                    "binding_collection_name": "$item_collection_name"
-                  }
-                ]
-              }
             }
           ],
           "bindings": [
@@ -3464,39 +3503,6 @@
     ]
   },
 
-  "bundle_mode_popup_control": {
-    "type": "panel",
-    "controls": [
-      {
-        "bundle_tooltip@common.bundle_tooltip": {
-          "alpha": 1,
-          "layer": 29,
-          "$hover_text_binding_name|default": "#hover_text",
-          "bindings": [
-            {
-              "binding_name": "$hover_text_binding_name",
-              "binding_name_override": "#hover_text",
-              "binding_type": "collection",
-              "binding_collection_name": "$item_collection_name"
-            },
-            {
-              "binding_name": "#hover_items_id",
-              "binding_name_override": "#hover_items_id",
-              "binding_type": "collection",
-              "binding_collection_name": "$item_collection_name"
-            },
-            {
-              "binding_name": "#item_container_transfer_mode",
-              "binding_name_override": "#visible",
-              "binding_type": "collection",
-              "binding_collection_name": "$item_collection_name"
-            }
-          ]
-        }
-      }
-    ]
-  },
-
   "pocket_ui_highlight_slot": {
     "type": "image",
     "texture": "textures/ui/pocket_ui_highlight_slot",
@@ -3511,13 +3517,6 @@
     "type": "custom",
     "renderer": "hover_text_renderer",
     "hover_text_max_width": "$hover_text_max_width",
-    "layer": 5,
-    "allow_clipping": false
-  },
-
-  "bundle_tooltip": {
-    "type": "custom",
-    "renderer": "bundle_renderer",
     "layer": 5,
     "allow_clipping": false
   },
@@ -3591,7 +3590,7 @@
 
   "durability_bar_grabbed@durability_bar": {
     "layer": 61,
-    "offset": [ "-10%", 4.5 ],
+    "offset": [ "-5%", 5 ],
     "size": [ "100%", 1 ],
     "bindings": [
       {
@@ -3781,6 +3780,12 @@
         "binding_condition": "visible",
         "binding_type": "collection",
         "binding_collection_name": "$item_collection_name"
+      },
+      {
+        "binding_name": "#fade_in_icon_time_seconds",
+        "binding_condition": "visible",
+        "binding_type": "collection",
+        "binding_collection_name": "$item_collection_name"
       }
     ]
   },
@@ -3862,7 +3867,7 @@
   "flying_item_renderer": {
     "type": "custom",
     "renderer": "flying_item_renderer",
-    "layer": 11,
+    "layer": 40,
     "property_bag": {
       "#flying_item_renderer": true
     }
@@ -4031,10 +4036,13 @@
           "type": "panel",
           "anchor_from": "top_left",
           "anchor_to": "top_left",
-          "clips_children": true,
           "offset": "$scroll_view_port_offset",
           "size": "$scroll_view_port_size",
           "max_size": "$scroll_view_port_max_size",
+
+          "$scroll_view_port_clips_children|default": true,
+          "clips_children": "$scroll_view_port_clips_children",
+
           "controls": [
             {
               "scrolling_content@$scrolling_content": {
@@ -4125,6 +4133,11 @@
   "scroll_view_control": {
     "type": "scroll_view",
     "size": "$scroll_view_control_size",
+
+    "$scroll_view_control_anchor|default": "center",
+    "anchor_to": "$scroll_view_control_anchor",
+    "anchor_from": "$scroll_view_control_anchor",
+
     "scroll_speed": 15,
     "scrollbar_track_button": "button.scrollbar_skip_track",
     "scrollbar_touch_button": "button.scrollbar_touch",
@@ -4134,6 +4147,9 @@
 
     "$always_handle_scrolling|default": false,
     "always_handle_scrolling": "$always_handle_scrolling",
+
+    "$scrollbar_always_visible|default": false,
+    "scrollbar_always_visible": "$scrollbar_always_visible",
 
     "scrollbar_track": "track",
     "scrollbar_box": "box",
@@ -4776,16 +4792,6 @@
     "controls": [
       {
         "hover@$highlight_control": {}
-      },
-      {
-        "bundle_popup_factory_control": {
-          "type": "panel",
-          "factory": {
-            "name": "bundle_popup_factory",
-            "control_name": "common.bundle_mode_popup_control",
-            "max_children_size": 1
-          }
-        }
       }
     ]
   },
@@ -4962,7 +4968,7 @@
     "$item_renderer_panel_size|default": [ 18, 18 ],
     "$item_renderer_size|default": [ 16, 16 ],
     "$item_renderer_offset|default": [ 0, 0 ],
-    "$background_images|default": "common.cell_image",
+    "$background_images|default": "common.cell_image_panel",
     "$background_image_control_name|default": "bg",
 
     "$focus_id|default": "",
@@ -4999,7 +5005,7 @@
                 "controls": [
                   {
                     "stack_count_label@common.stack_count_label": {
-                      "layer": 9
+                      "layer": 27
                     }
                   },
                   {
@@ -5016,12 +5022,12 @@
             },
             {
               "durability_bar@common.durability_bar": {
-                "layer": 8
+                "layer": 20
               }
             },
             {
               "storage_bar@common.storage_bar": {
-                "layer": 8
+                "layer": 20
               }
             }
           ]
@@ -5058,15 +5064,6 @@
         "item_lock_cell_image@common.item_lock_cell_image": {
           "layer": 2
         }
-      },
-      {
-        "item_container_transfer_mode_overlay@common.item_container_transfer_mode_overlay": {
-          "size": "$item_renderer_size",
-          "offset": [ 1, 1 ],
-          "anchor_to": "top_left",
-          "anchor_from": "top_left",
-          "layer": 10
-        }
       }
     ]
   },
@@ -5075,7 +5072,9 @@
     "size": [ 28, 28 ],
     "$cell_image_size|default": [ 28, 28 ],
     "$item_renderer_panel_size|default": [ 28, 28 ],
-    "$item_renderer_size|default": [ 24, 24 ]
+    "$item_renderer_size|default": [ 24, 24 ],
+    "$durability_bar_size": [ 18, 1 ],
+    "$durability_bar_offset": [ 0, 8 ]
   },
 
   "pocket_ui_large_container_item@common.pocket_ui_container_item": {
@@ -5132,29 +5131,6 @@
         "binding_name_override": "#visible",
         "binding_type": "collection",
         "binding_collection_name": "$item_collection_name"
-      }
-    ]
-  },
-
-  "item_container_transfer_mode": {
-    "type": "image",
-    "texture": "textures/ui/item_container_transfer_mode"
-  },
-
-  "item_container_transfer_mode_overlay": {
-    "type": "panel",
-    "controls": [
-      {
-        "item_container_transfer_mode@common.item_container_transfer_mode": {
-          "bindings": [
-            {
-              "binding_name": "#item_container_transfer_mode",
-              "binding_name_override": "#visible",
-              "binding_type": "collection",
-              "binding_collection_name": "$item_collection_name"
-            }
-          ]
-        }
       }
     ]
   },
@@ -5570,25 +5546,6 @@
     ]
   },
 
-  "inventory_item_container_transfer_mode_overlay": {
-    "type": "panel",
-    "size": [ 21, 21 ],
-    "offset": [ -1, -2 ],
-    "layer": 55,
-    "controls": [
-      {
-        "item_container_transfer_mode@common.item_container_transfer_mode": {
-          "bindings": [
-            {
-              "binding_name": "#item_container_transfer_mode",
-              "binding_condition": "always"
-            }
-          ]
-        }
-      }
-    ]
-  },
-
   "inventory_icon_panel": {
     "type": "panel",
     "controls": [
@@ -5848,6 +5805,31 @@
         "from_button_id": "button.menu_ok",
         "to_button_id": "button.container_reset_held",
         "mapping_type": "pressed"
+      },
+      {
+        "from_button_id": "button.return",
+        "to_button_id": "button.return",
+        "mapping_type": "global"
+      },
+      {
+        "from_button_id": "button.arrow_up",
+        "to_button_id": "button.arrow_key",
+        "mapping_type": "global"
+      },
+      {
+        "from_button_id": "button.arrow_down",
+        "to_button_id": "button.arrow_key",
+        "mapping_type": "global"
+      },
+      {
+        "from_button_id": "button.arrow_left",
+        "to_button_id": "button.arrow_key",
+        "mapping_type": "global"
+      },
+      {
+        "from_button_id": "button.arrow_right",
+        "to_button_id": "button.arrow_key",
+        "mapping_type": "global"
       },
       {
         "from_button_id": "button.controller_back",
@@ -6210,7 +6192,7 @@
               "$xbl_console_signin_screen_size": [ 316, 161 ], // XBL Console Signin Popup
               "$xbl_console_qr_signin_screen_size": [ 364, 182 ], // XBL Console QR Signin Popup
               "$xbl_console_signin_succeeded_screen_size": [ 230, "100% - 50px" ], // XBL Console Signin Succeeded Popup
-              "$xbl_first_launch_screen_size": [ 317, 146 ], // XBL First Launch Popup, Trial Upsell
+              "$xbl_first_launch_screen_size": [ 317, 146 ], // Trial Upsell
               "$xbl_gamer_profile_screen_size": [ 260, "100% - 50px" ], // XBL Console Signin Succeeded Popup
               "$modal_screen_size": [ 204, 140 ], // Pop-up dialogue boxes and modal progress screens
               "$tall_modal_screen_size": [ 204, 172 ],
@@ -6259,7 +6241,7 @@
               "$xbl_console_signin_screen_size": [ 316, 161 ], // XBL Console Signin Popup
               "$xbl_console_qr_signin_screen_size": [ 364, 182 ], // XBL Console QR Signin Popup
               "$xbl_console_signin_succeeded_screen_size": [ 230, "100% - 4px" ], // XBL Console Signin Succeeded Popup
-              "$xbl_first_launch_screen_size": [ 316, 146 ], // XBL First Launch Popup, Trial Upsell
+              "$xbl_first_launch_screen_size": [ 316, 146 ], // Trial Upsell
               "$xbl_gamer_profile_screen_size": [ 316, "100% - 4px" ], // XBL Console Signin Succeeded Popup
               "$modal_screen_size": [ 204, 140 ], // Pop-up dialogue boxes and modal progress screens
               "$rating_prompt_screen_size": [ 250, 87 ],
@@ -6334,22 +6316,6 @@
                 "propagate_alpha": true,
                 "disable_anim_fast_forward": true,
                 "layer": -1
-              }
-            },
-            {
-              "factory_panel": {
-                "type": "panel",
-                "controls": [
-                  {
-                    "error_dialog_factory": {
-                      "type": "factory",
-                      "control_ids": {
-                        "error_popup": "@display_logged_error.display_logged_error_modal",
-                        "error_details": "@display_logged_error.error_details_modal"
-                      }
-                    }
-                  }
-                ]
               }
             }
           ]
@@ -6947,6 +6913,49 @@
     ]
   },
 
+  "dynamic_tooltip_popup_with_custom_content@common.tooltip_background": {
+    "$ignore_tooltip_popup_chevron|default": false,
+    "$tooltip_popup_visible_binding|default": "",
+    "$tooltip_panel_offset|default": [ 0, -2 ],
+    "$tooltip_content|default": "common.empty_panel",
+
+    "min_size": [ 25, "default" ],
+    "size": [ "100%c - 6px", "100%cm + 8px" ],
+    "offset": "$tooltip_panel_offset",
+    "layer": 200, // always on top
+    "anchor_from": "top_middle",
+    "anchor_to": "bottom_middle",
+    "controls": [
+      {
+        "tooltip_content@$tooltip_content": {}
+      },
+      {
+        "tooltip_chevron": {
+          "ignored": "$ignore_tooltip_popup_chevron",
+          "type": "image",
+          "layer": 2,
+          "$tooltip_popup_chevron_size|default": [ 19, 13 ],
+          "size": "$tooltip_popup_chevron_size",
+          "$tooltip_popup_chevron_offset|default": [ 0, "100%y - 3px" ],
+          "offset": "$tooltip_popup_chevron_offset",
+          "$tooltip_chevron_anchor|default": "bottom_middle",
+          "anchor_to": "$tooltip_chevron_anchor",
+          "anchor_from": "$tooltip_chevron_anchor",
+          "$tooltip_popup_chevron_texture|default": "textures/ui/tooltip_default_chevron",
+          "texture": "$tooltip_popup_chevron_texture"
+        }
+      }
+    ],
+    "bindings": [
+      {
+        "binding_name": "$tooltip_popup_visible_binding",
+        "binding_name_override": "#visible",
+        "binding_collection_name": "$tooltip_button_collection_name",
+        "binding_type": "$tooltip_button_binding_type"
+      }
+    ]
+  },
+
   // Tool tip with centered chevron
   // $tool_tip_text_max_size defines how text wraps (x wraps with a '-' and y will cut off with '...')
   "dynamic_tooltip_popup_with_image_and_text@common.tooltip_background": {
@@ -7079,6 +7088,16 @@
 
   // Helper for tooltips intended to be below control
   "dynamic_tooltip_below@dynamic_tooltip_popup_with_image_and_text": {
+    "$tooltip_panel_offset": [ 0, 2 ],
+    "anchor_to": "top_middle",
+    "anchor_from": "bottom_middle",
+    "$tooltip_chevron_anchor": "top_middle",
+    "$tooltip_popup_chevron_offset": [ 0, "-100%y + 3px" ],
+    "$tooltip_popup_chevron_texture": "textures/ui/tooltip_inverted_chevron"
+  },
+  
+  // Helper for tooltips intended to be below control
+  "dynamic_custom_tooltip_below@dynamic_tooltip_popup_with_custom_content": {
     "$tooltip_panel_offset": [ 0, 2 ],
     "anchor_to": "top_middle",
     "anchor_from": "bottom_middle",
