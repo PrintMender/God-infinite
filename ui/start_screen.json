@@ -160,5 +160,188 @@
         }
       }
     ]
+  },
+  "lower_online_buttons_panel": {
+    "type": "stack_panel",
+    "anchor_to": "bottom_left",
+    "anchor_from": "bottom_left",
+    "size": [ "100%", "100%c" ],
+    "variables": [
+      {
+        "requires": "($showing_new_player_flow_buttons)",
+        "$anim_type": "@start.anim_main_buttons_panel_alpha"
+      },
+      {
+        "requires": "(not $showing_new_player_flow_buttons)",
+        "$anim_type": 1.0
+      }
+    ],
+    "alpha": "$anim_type",
+    "controls": [
+      {
+        "stacked_column": {
+          "type": "stack_panel",
+          "size": [ "100%", 32 ],
+          "offset": [ "5%", 0 ],
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "orientation": "horizontal",
+          "controls": [
+            {
+              "feedback_padding": {
+                "ignored": "$feedback_ignored",
+                "type": "panel",
+                "size": [ 3, "100%" ],
+                "bindings": [
+                  {
+                    "binding_name": "#feedback_visible",
+                    "binding_name_override": "#visible"
+                  }
+                ]
+              }
+            },
+            {
+              "feedback_btn@start.column_frame": {
+                "ignored": "$feedback_ignored",
+                "size": [ 28, 32 ],
+                "controls": [
+                  { "feedback_button@start.feedback_button": {} }
+                ],
+                "bindings": [
+                  {
+                    "binding_name": "#feedback_visible",
+                    "binding_name_override": "#visible"
+                  }
+                ]
+              }
+            },
+            {
+              "signingin": {
+                "size": [ "default", "100%" ],
+                "max_size": [ 120, "100%" ],
+                "type": "label",
+                "color": "$main_header_text_color",
+                "text": "#signingin_text",
+                "bindings": [
+                  {
+                    "binding_name": "#signingin_visible",
+                    "binding_name_override": "#visible"
+                  },
+                  {
+                    "binding_name": "#signingin_text"
+                  }
+                ]
+              }
+            },
+            {
+              "achievements_padding": {
+                "ignored": "$achievements_ignored",
+                "type": "panel",
+                "size": [ 3, "100%" ],
+                "bindings": [ //プロフィールのものと同じ
+                  {
+                    "binding_name": "#profile_button_a_visible",
+                    "binding_name_override": "#visible"
+                  }
+                ]
+              }
+            },
+            {
+              "achievements_btn@start.column_frame": {
+                "ignored": "$achievements_ignored",
+                "size": [ 28, 32 ],
+                "controls": [
+                  { "achievements_icon_button@start.achievements_icon_button": {} }
+                ],
+                "bindings": [
+                  { //プロフィールのものと同じ
+                    "binding_name": "#profile_button_a_visible",
+                    "binding_name_override": "#visible"
+                  }
+                ]
+              }
+            },
+            {
+              "invite_padding": {
+                "type": "panel",
+                "size": [ 3, "100%" ],
+                "bindings": [
+                  {
+                    "binding_name": "#realms_notification_visible",
+                    "binding_name_override": "#visible"
+                  }
+                ]
+              }
+            },
+            {
+              "invite_btn_other@start.column_frame": {
+                "size": [ 28, 32 ],
+                "controls": [
+                  { "invite_button@start.realms_pending_invite_panel": {} }
+                ],
+                "bindings": [
+                  {
+                    "binding_name": "#realms_notification_visible",
+                    "binding_name_override": "#visible"
+                  }
+                ]
+              }
+            },
+            {
+              "inbox_padding": {
+                "type": "panel",
+                "size": [ 3, "100%" ],
+                "bindings": [
+                  {
+                    "binding_name": "#inbox_enabled",
+                    "binding_name_override": "#visible"
+                  }
+                ]
+              }
+            },
+            {
+              "inbox_btn@start.column_frame": {
+                "size": [ 28, 32 ],
+                "controls": [
+                  { "inbox_icon_button@start.inbox_icon_button": {} }
+                ],
+                "bindings": [
+                  {
+                    "binding_name": "#inbox_enabled",
+                    "binding_name_override": "#visible"
+                  }
+                ]
+              }
+            },
+            {
+              "profile_btn_padding": {
+                "type": "panel",
+                "size": [ 5, "100%" ],
+                "bindings": [
+                  {
+                    "binding_name": "#profile_button_a_visible",
+                    "binding_name_override": "#visible"
+                  }
+                ]
+              }
+            },
+            {
+              "profile_btn@start.column_frame": {
+                "size": [ "100%c", 32 ],
+                "controls": [
+                  { "profile_button@start.profile_button": {} }
+                ],
+                "bindings": [
+                  {
+                    "binding_name": "#profile_button_a_visible",
+                    "binding_name_override": "#visible"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
   }
 }
