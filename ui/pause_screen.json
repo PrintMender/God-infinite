@@ -200,7 +200,13 @@
                 "ignored": "$achievements_ignored",
                 "size": [ 28, 32 ],
                 "controls": [
-                  { "achievements_icon_button@pause.achievements_icon_button": {} }
+                  {
+                    "achievements_button@common_buttons.light_content_button": {
+                      "size": [ 24, 24 ],
+                      "$button_content": "pause.achievements_icon",
+                      "$pressed_button_name": "button.menu_achievements"
+                    }
+                  }
                 ],
                 "bindings": [ //プロフィールのものと同じ
                   {
