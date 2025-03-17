@@ -1,5 +1,5 @@
 ##最終更新
-##1.21.50 (release)
+##1.21.60 (release)
 
 ## Comments can be added anywhere on a valid line by starting with '##'
 ##
@@ -11467,67 +11467,13 @@ unloadedchunk.message.warning=チャンクはまだ読み込み中です。軽�
 
 ## ----------------[[[ここは変更したものを入れるところです]]]----------------------------
 
-##[[[キック]]]
-
-commands.kick.description=プレイヤーをサーバーからキックする。	#
-commands.kick.description.edu=ゲームからプレイヤーをキックする。	#
-commands.kick.no.player=キックしたいプレイヤーの名前を入力してください	#
-commands.kick.not.yourself=自分自身をゲームからキックすることはできません	#
-commands.kick.success=ゲームから %1$s をキックしました	#
-commands.kick.success.reason=ゲームから %1$s をキックしました: '%2$s'	#
-commands.kick.success.reasonedu=ゲームから %1$s をキックしました: '%2$s'	#
-commands.kick.no.host=ホストがゲームからキックされない場合があります。	#
-disconnect.kicked=ゲームからキックされました	#
-disconnect.kicked.reason=ゲームからキックされました	#
-disconnect.removed=ゲームからキックされました	#
-disconnect.removed.reason=ゲームからキックされました	#
-permissions.kickplayer=プレイヤーをキック	#
-permissions.kickplayer.reason=ホストにより、セッションからキックされました。	#
-permissions.kickplayer.message=%sをゲームからキックしますか? キックされたプレイヤーは、ワールドを再起動するまで参加できなくなります。	#
-permissions.kickplayer.message.dedicatedserver=本当にこの世界から%sをキックしますか?	#
-permissions.kickplayer.title=プレイヤーをキックしますか?	#
-permissionsScreen.kick=プレイヤーをキック	#
-
-##[[[スニーク]]]
-
-action.hint.exit.pig=スニークで降ります	#
-action.hint.exit.horse=スニークで降ります	#
-action.hint.exit.strider=スニークで降ります	#
-action.hint.exit.donkey=スニークで降ります	#
-action.hint.exit.mule=スニークで降ります	#
-action.hint.exit.llama=スニークで降ります	#
-action.hint.exit.trader_llama=スニークで降ります	#
-action.hint.exit.skeleton_horse=スニークで降ります	#
 
 ##[[[other]]]
-advMode.self=@s = 自分	#
 commands.transferserver.invalid.port=無効なポート (0-65535で入力してください)	#
 build.tooHigh=建築最高高度は %s ブロックです	#
 build.tooLow=建物最低高度は %s ブロックです	#
 thirdPartyWorld.Additional=追加したサーバー	#
 map.position=XYZ : %s / %s / %s	#
-comment.like=いいね! %d						### 1 like
-comment.likes=いいね! %d						### 0 or 2+ likes
-comment.comment=コメント %d					### 1 comment
-comment.comments=コメント %d				### 0 or 2+ comments
-comment.likes_and_comments=%1 と %2		### comment.like(s) will be inserted at %1 and comment.comment(s) at %2
-comment.commentplaceholder=コメント...	#
-
-##[[[チェスト]]]
-
-chestScreen.header.large=ラージチェスト	#
-chestScreen.header.player=インベントリ	#
-container.chestDouble=ラージチェスト	#
-
-##[[[cmd block]]]
-
-commandBlockScreen.blockType.impulse=インパルス	#
-commandBlockScreen.blockType.chain=チェーン	#
-commandBlockScreen.blockType.repeat=リピート	#
-commandBlockScreen.redstone.needs_redstone=レッドストーンが必要	#
-commandBlockScreen.redstone.always_on=常時実行	#
-commandBlockScreen.hoverNote=視点を合わせたときの表示	#
-commandBlockScreen.title=Command Block	#
 
 ##[[[cmd]]]
 
@@ -11539,7 +11485,6 @@ commands.give.successRecipient=[%1$s] を %2$d 個受け取りました	#
 howtoplay.beds.text.5=ネザーで寝ると爆発します！注意してください。	#
 howtoplay.commandBlocks.text.2=コマンドブロックを入手するには、/give を使用する必要があります。(/give @s command_block)	#
 howtoplay.structureBlocks.text.2=ストラクチャー ブロックを使用するには、/give コマンドを使用する必要があります。(/give @s structure)ストラクチャー ブロックを使用できるのは、オペレーター権限を持つプレイヤーのみです。		###
-options.difficulty.peaceful=ピースフル	#
 options.renderDistanceFormat=%s チャンク	#
 options.renderDistanceRecommendedFormat=%s チャンク (推奨)	#
 key.sneak=スニーク/下降 (飛行時)	#
@@ -11565,64 +11510,9 @@ enchantment.level.8=Ⅷ 8	#
 enchantment.level.9=Ⅸ 9	#
 
 ##[[[アイテム]]]
-tile.wood.oak.name=樫の木	#
-tile.wood.spruce.name=トウヒの木	#
-tile.wood.birch.name=樺の木	#
-tile.wood.jungle.name=ジャングルの木	#
-tile.wood.acacia.name=アカシアの木	#
-tile.wood.dark_oak.name=黒樫の木	#
-tile.wood.stripped.oak.name=皮のはがれた樫の木	#
-tile.wood.stripped.spruce.name=皮のはがれたトウヒの木	#
-tile.wood.stripped.birch.name=皮のはがれた樺の木	#
-tile.wood.stripped.jungle.name=皮のはがれたジャングルの木	#
-tile.wood.stripped.acacia.name=皮のはがれたアカシアの木	#
-tile.wood.stripped.dark_oak.name=皮のはがれた黒樫の木	#
 
-##(クリムゾン)を変更 --> 真紅
-item.crimson_sign.name=真紅の看板	#
-item.crimson_hanging_sign.name=真紅の吊り看板	#
-item.crimson_door.name=真紅のドア	#
-item.crimson_sign.name=真紅の看板	#
-
-tile.crimson_stem.name=真紅の幹	#
-tile.stripped_crimson_stem.name=皮のはがれた真紅の幹	#
-tile.crimson_hyphae.name=真紅の菌糸	#
-tile.stripped_crimson_hyphae.name=皮のはがれた真紅の菌糸	#
-tile.crimson_planks.name=真紅の木材	#
-tile.crimson_door.name=真紅のドア	#
-tile.crimson_trapdoor.name=真紅のトラップドア	#
-tile.crimson_standing_sign.name=真紅の看板    #
-tile.crimson_wall_sign.name=真紅の看板	#
-tile.crimson_stairs.name=真紅の階段	#
-tile.crimson_fence.name=真紅の柵	#
-tile.crimson_fence_gate.name=真紅の柵のゲート	#
-tile.crimson_button.name=真紅のボタン	#
-tile.crimson_pressure_plate.name=真紅の重量感知板	#
-tile.crimson_slab.name=真紅のハーフブロック	#
-tile.crimson_double_slab.name=真紅のハーフブロック	#
-tile.crimson_nylium.name=真紅のニリウム	#
-tile.crimson_roots.crimsonRoots.name=真紅の根	#
-tile.crimson_fungus.name=真紅のキノコ	#
-
-tips.game.25=真紅のキノコ でホグリンを繁殖させることができますが、危険です!	#
-
-
-tile.end_portal_frame.name=エンドポータルフレーム	#
-tile.netherrack.name=ネザーラック	#
-item.steak.name=ステーキ	#
-itemGroup.name.stone=石(石以外の石系ブロック)	#
-tile.tnt.name=TNT	#
 notification.lock.noRemove=このアイテムはロックされているため、持ち物から削除できません\n(clearコマンドで削除できます)	#
 container.shulkerboxContains=その他 %d 個...	#
-tile.command_block.name=§dコマンドブロック§f	#
-tile.repeating_command_block.name=§dリピートコマンドブロック§f	#
-tile.chain_command_block.name=§dチェーンコマンドブロック§f	#
-tile.barrier.name=§dバリアブロック§f	#
-tile.structure_block.name=§dストラクチャー ブロック§f	#
-tile.structure_void.name=§dストラクチャー ヴォイド§f	#
-tile.border_block.name=§dボーダー§f	#
-tile.allow.name=§d許可§f	#
-tile.deny.name=§d拒否§f	#
 
 item.canBreak=破壊可能：	#
 item.canPlace=設置可能：	#
@@ -11638,7 +11528,6 @@ item.itemLock.popupNotice.cantMove=:solid_star: このアイテムは移動、�
 
 ##[[[op]]]
 
-permissions.ability.op=op command	#
 permissions.level.operator=OP	#
 
 ##[[[chat]]]
