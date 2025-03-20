@@ -9,7 +9,7 @@
     "type": "stack_panel",
     "orientation": "horizontal",
     "size": [ "100%", 27 ],
-
+    "ttsSectionContainer": true,
     "$is_search_right_most_tab|default": true,
 
     "controls": [
@@ -324,7 +324,7 @@
               "toolbar_stack_panel": {
                 "type": "stack_panel",
                 "orientation": "horizontal",
-
+                "ttsSectionContainer": true,
                 "size": [ "default", "100% - 8px" ],
                 "offset": [ 0, 3 ],
                 "anchor_from": "top_middle",
@@ -514,6 +514,132 @@
     ]
   },
 
+    //---------------------------
+  //---------------------------
+
+  "inventory_screen_base@common.inventory_screen_common": {
+    "button_mappings": [
+      {
+        "from_button_id": "button.menu_cancel",
+        "to_button_id": "button.menu_exit",
+        "mapping_type": "global"
+      },
+      {
+        "from_button_id": "button.menu_inventory_cancel",
+        "to_button_id": "button.menu_exit",
+        "mapping_type": "global"
+      },
+      {
+        "from_button_id": "button.menu_up",
+        "to_button_id": "button.menu_up",
+        "mapping_type": "global",
+        "scope": "view"
+      },
+      {
+        "from_button_id": "button.menu_down",
+        "to_button_id": "button.menu_down",
+        "mapping_type": "global",
+        "scope": "view"
+      },
+      {
+        "from_button_id": "button.menu_left",
+        "to_button_id": "button.menu_left",
+        "mapping_type": "global",
+        "scope": "view"
+      },
+      {
+        "from_button_id": "button.menu_right",
+        "to_button_id": "button.menu_right",
+        "mapping_type": "global",
+        "scope": "view"
+      },
+      {
+        "from_button_id": "button.menu_select",
+        "to_button_id": "button.cursor_drop_all",
+        "mapping_type": "pressed"
+      },
+      {
+        "from_button_id": "button.menu_secondary_select",
+        "to_button_id": "button.cursor_drop_one",
+        "mapping_type": "pressed"
+      },
+      {
+        "from_button_id": "button.menu_ok",
+        "to_button_id": "button.cursor_drop_all",
+        "mapping_type": "pressed"
+      },
+      {
+        "from_button_id": "button.controller_back",
+        "to_button_id": "button.cursor_drop_all",
+        "mapping_type": "pressed",
+        "ignored": "(not $is_ps4)"
+      },
+      {
+        "from_button_id": "button.controller_select",
+        "to_button_id": "button.clear_hotbar_or_drop",
+        "mapping_type": "pressed"
+      },
+      {
+        "from_button_id": "button.controller_secondary_select",
+        "to_button_id": "button.cursor_drop_all",
+        "mapping_type": "pressed"
+      },
+      {
+        "from_button_id": "button.menu_clear",
+        "to_button_id": "button.menu_clear",
+        "mapping_type": "focused"
+      },
+      {
+        "from_button_id": "button.menu_tab_left",
+        "to_button_id": "button.left_panel_tab_decrement",
+        "mapping_type": "global"
+      },
+      {
+        "from_button_id": "button.menu_tab_right",
+        "to_button_id": "button.left_panel_tab_increment",
+        "mapping_type": "global"
+      },
+      {
+        "from_button_id": "button.menu_alternate_tab_left",
+        "to_button_id": "button.layout_increment",
+        "mapping_type": "global"
+      },
+      {
+        "from_button_id": "button.menu_alternate_tab_right",
+        "to_button_id": "button.layout_decrement",
+        "mapping_type": "global"
+      },
+      {
+        "from_button_id": "button.controller_secondary_select_left",
+        "to_button_id": "button.shift_pane_focus",
+        "mapping_type": "global"
+      },
+      {
+        "from_button_id": "button.controller_secondary_select_right",
+        "to_button_id": "button.clear_selected_recipe",
+        "mapping_type": "global"
+      }
+    ]
+  },
+
+  "crafting_screen@crafting.inventory_screen_base": {
+    "send_telemetry": false,
+    "$uses_bundle_tooltip": true,
+    "$screen_content": "crafting.recipe_inventory_screen_content",
+    "$screen_bg_content": "common.screen_background",
+    "$screen_background_alpha": 0.4,
+    "$top_half_variant": "crafting.crafting_panel_top_half",
+    "$close_on_player_hurt|default": true,
+    "close_on_player_hurt": "$close_on_player_hurt"
+  },
+
+  "inventory_screen@crafting.inventory_screen_base": {
+    "send_telemetry": false,
+    "$screen_content": "crafting.recipe_inventory_screen_content",
+    "$screen_bg_content": "common.screen_background",
+    "$screen_background_alpha": 0.4,
+    "$top_half_variant": "crafting.survival_panel_top_half"
+  },
 
   "recipe_inventory_screen_content": { 
     "type": "panel",
